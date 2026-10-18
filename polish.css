@@ -1,0 +1,56 @@
+/* PlayStation-RE finish: local art, layered transitions, playable UI concept */
+.real-gta-logo{width:min(550px,44vw);height:auto;max-height:215px;object-fit:contain;object-position:left center;mix-blend-mode:screen;filter:drop-shadow(0 5px 14px #02020a77)}
+.launch-logo-art,.story-logo-art{mix-blend-mode:screen;object-fit:contain;filter:drop-shadow(0 8px 20px #0009)}
+.launch-logo-art{width:min(420px,65vw);max-height:330px}
+.story-logo-art{width:min(440px,52vw);max-height:300px}
+.hero-art{isolation:isolate;will-change:auto}
+.hero-art::before{opacity:0!important}
+.hero-frame{position:absolute;inset:0;z-index:0;opacity:0;transform:scale(1.035);background-size:cover;background-position:center;transition:opacity .65s ease,transform 4s cubic-bezier(.15,.7,.18,1);pointer-events:none}
+.hero-frame.active{opacity:1;transform:scale(1)}
+.console:has(.tile[data-id="gta6"].selected) .shade{background:linear-gradient(90deg,rgba(4,6,21,.88),rgba(7,6,24,.68) 40%,rgba(7,8,23,.09) 88%),linear-gradient(180deg,#0205148a,transparent 39%,#020512b5)}
+.tile{transition:transform .23s cubic-bezier(.2,.78,.2,1),box-shadow .23s}
+.tile-picture{opacity:1}.tile:active{transform:scale(.985)}
+.cc-playing{background:linear-gradient(90deg,#101326cc,#181a2a77),url("./assets/gta-vi-hero.webp") center/cover!important}
+.activity-art{background:url("./assets/gta-vi-cover.jpg") center/cover!important}
+.story-art{background:linear-gradient(90deg,#03050fd4,#03050f22 75%),url("./assets/gta-vi-hero.webp") center/cover!important}
+.launch-art{background:linear-gradient(90deg,#0b082055,#0b08205a),url("./assets/gta-vi-hero.webp") center/cover!important}
+.story-wordmark:has(.story-logo-art){font-size:0;min-height:260px;margin-bottom:10px}
+.story-content:has(.story-logo-art){top:12%}
+.story-content:has(.story-logo-art) h2{font-weight:400;letter-spacing:-.025em;font-size:33px}
+.launch-center:has(.launch-logo-art){top:47%}
+.scene-preview{position:absolute;inset:0;z-index:40;overflow:hidden;background:#161027;color:white;opacity:1;visibility:visible;transition:opacity .4s ease,visibility .4s}
+.scene-preview.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.scene-backdrop{position:absolute;inset:-6%;background:linear-gradient(180deg,#0002,transparent 48%,#03020c8f),url("./assets/gta-vi-hero.webp") center/cover;transform:scale(1.1) translate3d(var(--pan,0px),var(--tilt,0px),0);transition:transform 1.4s cubic-bezier(.16,.72,.2,1)}
+.scene-preview:after{position:absolute;inset:0;content:"";pointer-events:none;background:linear-gradient(180deg,#0009,transparent 25%,transparent 65%,#0009)}
+.scene-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(23px,4vw,57px) clamp(24px,5vw,78px)}
+.scene-top{display:flex;justify-content:space-between;gap:20px}
+.scene-label{display:block;text-transform:uppercase;letter-spacing:.24em;font-weight:700;font-size:12px;color:#f7d7df}
+.scene-heading{margin:11px 0;font-size:clamp(32px,5vw,76px);letter-spacing:-.06em;font-weight:800;text-transform:uppercase;text-shadow:0 4px 26px #0007}
+.scene-chapter{display:inline-block;border:1px solid #fff7;padding:7px 12px;font-size:11px;letter-spacing:.13em;background:#0003}
+.scene-status{text-align:right;font-size:13px;letter-spacing:.05em;color:#ddd9e0}
+.scene-status strong{display:block;font-size:18px;color:#fff;font-weight:500;margin-bottom:8px}
+.scene-bottom{display:flex;gap:22px;justify-content:space-between;align-items:end}
+.scene-radar{flex:0 0 162px;height:162px;border-radius:50%;position:relative;overflow:hidden;box-shadow:0 0 0 5px #111b,0 9px 28px #0007;background:linear-gradient(19deg,transparent 47%,#9bb9be 48% 53%,transparent 54%),linear-gradient(111deg,transparent 43%,#9bb9be 44% 48%,transparent 49%),repeating-linear-gradient(12deg,#93a6a2 0 17px,#a7b8b6 17px 19px,#8fa3a0 19px 40px);transform:rotate(-11deg)}
+.scene-radar:after{content:"";position:absolute;top:48%;left:49%;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:18px solid white;filter:drop-shadow(0 2px 3px #0009)}
+.scene-subtitles{margin:auto 0 18px;max-width:min(640px,58vw);background:#03040b70;backdrop-filter:blur(8px);padding:13px 23px;border-radius:3px;font-size:clamp(15px,1.4vw,19px);line-height:1.5;min-height:76px;display:grid;place-items:center;text-align:center;text-shadow:0 2px 7px #000}
+.scene-hud{font-size:12px;line-height:1.7;text-align:right;color:#eee9ee;text-shadow:0 1px 6px #000}
+.scene-hud strong{display:block;font-size:17px;font-weight:500}
+.scene-hud kbd{display:inline-block;padding:1px 6px;border:1px solid #ffffff8c;border-radius:4px;font:inherit}
+.scene-demo{position:absolute;z-index:4;bottom:18px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.12em;color:#ffffffb5;white-space:nowrap}
+.scene-paused .scene-backdrop{filter:blur(9px) saturate(.7) brightness(.6)}
+.scene-pause{display:none;position:absolute;inset:0;background:#08091586;backdrop-filter:blur(15px);z-index:6;align-items:center;justify-content:center}
+.scene-paused .scene-pause{display:flex}
+.scene-pause-card{width:min(440px,89vw);padding:40px 42px;background:#11131dd9;box-shadow:0 12px 55px #0008;border:1px solid #ffffff32;border-radius:7px;display:flex;flex-direction:column;gap:11px}
+.scene-pause-card small{letter-spacing:.2em;opacity:.75}
+.scene-pause-card h2{font-size:38px;font-weight:500;margin:8px 0 21px}
+.scene-pause-card button{font-weight:600;font-size:16px;text-align:left;border-radius:5px;background:#ffffff18;padding:16px 20px}
+.scene-pause-card button:hover,.scene-pause-card button:focus-visible{background:#f3f4f5;color:#24242c}
+.scene-pause-card p{font-size:12px;opacity:.65;line-height:1.7}
+.touch-console{display:none;position:absolute;z-index:7;bottom:16px;left:15px;gap:7px;align-items:center}
+.touch-console button{font-weight:700;width:43px;height:43px;display:grid;place-items:center;border:1px solid #ffffff57;border-radius:12px;background:#0c1120a1;backdrop-filter:blur(18px);font-size:20px;touch-action:manipulation}
+.touch-console .touch-ps{width:54px;font-size:13px}.touch-console .touch-select{border-radius:50%;font-size:17px}
+.touch-console button:active{background:#ffffff5c}
+body:has(.scene-preview:not(.hidden)) .touch-console{display:none!important}
+@media(max-width:800px){.real-gta-logo{width:min(470px,72vw)}.scene-radar{flex-basis:114px;height:114px}.scene-hud{font-size:10px}.scene-subtitles{font-size:14px;max-width:56vw}.touch-console{display:flex}.story-logo-art{max-width:73vw}.story-wordmark:has(.story-logo-art){min-height:190px}}
+@media(max-width:550px){.real-gta-logo{width:min(390px,86vw);max-height:160px}.touch-console button{width:38px;height:38px}.touch-console .touch-ps{width:47px}.scene-overlay{padding:26px 22px 57px}.scene-status{font-size:11px}.scene-heading{font-size:38px}.scene-chapter{font-size:9px}.scene-radar{flex-basis:89px;height:89px}.scene-hud{display:none}.scene-subtitles{margin:0 0 4px;max-width:calc(100% - 110px);font-size:13px;min-height:60px}.scene-demo{font-size:9px}.story-wordmark:has(.story-logo-art){min-height:160px}.story-logo-art{max-height:190px}.story-content:has(.story-logo-art) h2{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.hero-frame,.scene-backdrop,.scene-preview{transition:none!important}}
