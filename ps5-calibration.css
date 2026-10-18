@@ -77,3 +77,31 @@
 @media(max-height:720px){.topbar{height:72px;padding-top:21px}.game-row{height:104px}.game-row .tile{height:75px;width:75px;flex-basis:75px}.main{height:calc(100% - 176px)}.home-panel{padding-top:8px}.game-heading{height:138px}.real-gta-logo{height:137px!important}.game-info{margin-top:9px}.game-description{font-size:15px}.bottom-details{bottom:30px}.cc-upper{bottom:178px}.cc-cards{height:153px}}
 @media(max-width:800px){.topbar{height:68px;padding:19px 4.6vw 0}.game-row{height:107px;padding:0 4.6vw}.game-row .tile{width:76px;height:76px;flex-basis:76px}.main{height:calc(100% - 175px);padding:0 4.6vw}.home-panel{padding-top:25px}.game-heading{height:145px}.real-gta-logo{height:140px!important;max-width:55vw!important}.game-info{margin-top:15px}.game-description{font-size:16px}.bottom-details{bottom:61px}.trophy-hub{display:none}.cc-upper{bottom:170px}.cc-cards{height:155px;max-width:92vw}.cc-card:last-child{display:none}.cc-actions{gap:3px}.cc-status{display:none}}
 @media(max-width:520px){.topbar{height:60px;padding:15px 18px 0}.utilities{gap:9px}.topbar .tab{font-size:18px}.game-row{height:97px;padding:0 18px;gap:9px}.game-row .tile{width:67px;height:67px;flex-basis:67px}.main{height:calc(100% - 157px);padding:0 21px}.home-panel{padding-top:8vh}.game-heading{height:125px}.real-gta-logo{height:125px!important;max-width:73vw!important}.game-info{margin-top:16px}.game-description{font-size:15px;max-width:88vw}.bottom-details{display:none}.cc-upper{bottom:157px;left:22px;right:22px}.cc-cards{height:145px}.cc-card:nth-child(n+2){display:none}.cc-bottom{bottom:57px}.cc-action span{width:40px;height:40px}.cc-actions{gap:0}.cc-back{bottom:17px}.focus-caption{font-size:12px!important}.touch-console{z-index:8}}
+
+
+/* Screenshot-driven final adjustments: PS5 selected icon expands above smaller neighbors. */
+.game-row .tile:not(.selected){
+ width:clamp(57px,7.7vh,83px);
+ height:clamp(57px,7.7vh,83px);
+ flex-basis:clamp(57px,7.7vh,83px);
+ border-radius:clamp(8px,1.1vh,12px);
+ filter:brightness(.94);
+}
+.game-row .tile.selected{
+ width:clamp(82px,11.4vh,120px);
+ height:clamp(82px,11.4vh,120px);
+ flex-basis:clamp(82px,11.4vh,120px);
+ transform:none;
+}
+.game-row .tile.selected:hover{transform:none}
+.game-row{padding-top:5px;align-items:flex-start}
+.focus-caption{font-size:clamp(13px,1.15vw,17px)!important;text-shadow:0 1px 6px #050411}
+.launch-overlay.hidden,.story-overlay.hidden,.control-center.hidden,.modal-overlay.hidden,.options-menu.hidden{display:none!important}
+@media(max-width:800px){
+ .game-row .tile:not(.selected){width:62px;height:62px;flex-basis:62px}
+ .game-row .tile.selected{width:86px;height:86px;flex-basis:86px}
+}
+@media(max-width:520px){
+ .game-row .tile:not(.selected){width:54px;height:54px;flex-basis:54px}
+ .game-row .tile.selected{width:75px;height:75px;flex-basis:75px}
+}
