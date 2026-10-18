@@ -16,6 +16,7 @@ jobs:
           node --check app.js
           node --check enhancements.js
           node --check experience.js
+          node --check accuracy.js
           node --check tools/fetch-artwork.mjs
       - name: Verify required files
         run: |
@@ -23,6 +24,7 @@ jobs:
           test -s styles.css
           test -s fidelity.css
           test -s polish.css
+          test -s accuracy.css
           test -s assets/gta-vi-logo.png
           test -s assets/gta-vi-cover.jpg
           test -s assets/gta-vi-hero.webp
