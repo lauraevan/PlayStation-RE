@@ -1,0 +1,43 @@
+name: PS5 browser navigation
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "*.js"
+      - "*.css"
+      - "assets/**"
+      - "tests/console.mjs"
+      - ".github/workflows/browser.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    name: Chromium screen & input tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run local console in a browser
+        shell: bash
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ps5-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          sleep 2
+          node tests/console.mjs
+      - name: Upload visual proof
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ps5-ui-captures
+          path: test-artifacts/*.png
+          if-no-files-found: ignore
