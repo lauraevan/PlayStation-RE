@@ -26,6 +26,17 @@ const MEDIA = [
 ];
 
 const $ = id => document.getElementById(id);
+const audioFiles = {navigate:"./assets/sfx/navigate.wav",confirm:"./assets/sfx/confirm.wav",back:"./assets/sfx/back.wav"};
+const audioBank = {};
+function cue(name){
+ if(state.mute || !audioFiles[name])return;
+ try{
+  if(!audioBank[name]){audioBank[name]=new Audio(audioFiles[name]);audioBank[name].volume=.24;}
+  const sound=audioBank[name].cloneNode();sound.volume=.24;
+  const playing=sound.play();if(playing&&playing.catch)playing.catch(()=>{});
+ }catch(error){}
+}
+
 const state = {tab:"games",selected:"gta6",modal:false,options:false,control:false,launch:false,story:false,library:false,mute:false,profile:"Evan",loadingTimer:null,loadingPercent:0,ccSelection:0,lastGamepadAt:0};
 try {state.profile = localStorage.getItem("psre.profile") || "Evan";state.mute = localStorage.getItem("psre.mute")==="true";}catch(e){}
 const getList = () => state.tab === "games" ? CATALOG : MEDIA;
@@ -87,7 +98,7 @@ function render(){
 }
 function select(id){
  if(!getList().some(item=>item.id===id))return;
- state.selected=id;render();
+ if(state.selected!==id)cue("navigate");state.selected=id;render();
 }
 function move(delta){
  const list=getList();const index=list.findIndex(i=>i.id===state.selected);
@@ -95,7 +106,7 @@ function move(delta){
 }
 function switchTab(tab){
  if(!["games","media"].includes(tab))return;
- state.tab=tab;state.selected=tab==="games"?"gta6":"gallery";
+ if(state.tab!==tab)cue("navigate");state.tab=tab;state.selected=tab==="games"?"gta6":"gallery";
  state.library=false;$("libraryPanel").classList.add("hidden");$("homePanel").classList.remove("hidden");
  render();
 }
@@ -156,10 +167,10 @@ function renderLibrary(filter){
 const CC_ACTIONS=[
  {label:"Home",icon:"⌂",action:()=>closeControl()},
  {label:"Switcher",icon:"▣",action:()=>{closeControl();openLibrary();}},
- {label:"Notifications",icon:"♧",action:()=>openModal("Notifications",'<p>You are all caught up.</p><p>Activity and game status are simulated locally.</p>')},
- {label:"Game Base",icon:"♙",action:()=>openModal("Game Base",'<p>Friends and parties are not connected in this demo.</p>')},
+ {label:"Notifications",icon:"♧",action:()=>{closeControl();openModal("Notifications",'<p>You are all caught up.</p><p>Activity and game status are simulated locally.</p>');}},
+ {label:"Game Base",icon:"♙",action:()=>{closeControl();openModal("Game Base",'<p>Friends and parties are not connected in this demo.</p>');}},
  {label:"Music",icon:"♫",action:()=>{closeControl();switchTab("media");}},
- {label:"Downloads",icon:"↓",action:()=>openModal("Downloads / Uploads",'<p>No active downloads. Local demonstration only.</p>')},
+ {label:"Downloads",icon:"↓",action:()=>{closeControl();openModal("Downloads / Uploads",'<p>No active downloads. Local demonstration only.</p>');}},
  {label:"Sound",icon:"◖",action:()=>{state.mute=!state.mute;try{localStorage.setItem("psre.mute",state.mute);}catch(e){}textToast(state.mute?"Sound muted":"Sound enabled");}},
  {label:"Power",icon:"⏻",action:()=>{closeControl();openModal("Power",'<p>Finish this console session?</p><button id="sleepBtn" class="modal-action">Enter Rest Mode (demo)</button>');$("sleepBtn").addEventListener("click",()=>{closeModal();textToast("Rest Mode simulation");});}}
 ];
@@ -179,6 +190,7 @@ function openControl(){
 function closeControl(){state.control=false;show($("controlCenter"),false);}
 function toggleControl(){state.control?closeControl():openControl();}
 function activate(item){
+ cue("confirm");
  if(item.id==="library"){openLibrary();return;}
  if(item.id==="store"){openModal("PlayStation Store",'<p>Welcome to the store preview. This page is an interactive console UI demonstration, not a real storefront.</p>');return;}
  if(item.id==="welcome"){openModal("Welcome",'<p>Welcome back, '+escapeHtml(state.profile)+'.</p><p>Select a game to start or press <b>P</b> for Control Center.</p>');return;}
@@ -213,6 +225,7 @@ function cancelLaunch(){
 }
 function exitStory(){state.story=false;show($("storyOverlay"),false);}
 function goBack(){
+ cue("back");
  if(state.modal){closeModal();return;}
  if(state.options){closeOptions();return;}
  if(state.control){closeControl();return;}
