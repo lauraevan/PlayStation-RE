@@ -73,3 +73,10 @@ The fetcher validates HTTP content types and image signatures before writing `as
 - `assets/local-art.json`: local downloaded-art override when populated.
 
 **Scope:** This is an independent UI recreation, not a byte-identical Sony shell, real PS5 firmware, or a working copy of Grand Theft Auto VI. The GTA VI launch sequence is only a staged visual simulation. Official marketing images remain owned by their publishers.
+
+
+## October 2026 GTA VI artwork pass
+
+The game tile uses the new multi-panel cover, the game hub uses the updated VI title image, and the hero/launch/menu use the Jason and Lucia wide background. The repository includes a downloader in `scripts/import-reference-art.py` and an Actions workflow to store these three pieces as local static files under `assets/`. The interface also includes public-source fallbacks so the preview remains usable if the artwork import has not run yet. Source: supplied artwork references and equivalent publicly hosted promotional media. No GTA VI game files are used.
+
+[GitHack development preview](https://raw.githack.com/lauraevan/PlayStation-RE/main/index.html). GitHack's `raw.githack.com` domain serves the latest branch but can cache updates; use the commit-pinned URL for immutable previews.
