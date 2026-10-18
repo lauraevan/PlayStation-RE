@@ -24,7 +24,8 @@ MANIFEST = ASSETS / "artwork.json"
 LOCAL = ASSETS / "local-art.js"
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
 MAX_MEMBER = 45 * 1024 * 1024
-MAX_TOTAL = 850 * 1024 * 1024
+MAX_TOTAL = 180 * 1024 * 1024
+MAX_FILES = 48
 
 def slug(name: str) -> str:
     return re.sub(r"[^a-z0-9._-]+", "-", name.lower()).strip("-.")[:80] or "image"
@@ -45,6 +46,9 @@ def unpack(media_zip: Path, category: str, include_videos: bool=False) -> list[P
     valid_exts = EXTENSIONS | ({".mp4", ".webm", ".mov"} if include_videos else set())
     with zipfile.ZipFile(media_zip) as bundle:
         for info in bundle.infolist():
+            if len(saved) >= MAX_FILES:
+                print("Reached recommended asset count limit")
+                break
             if info.is_dir():
                 continue
             raw = Path(info.filename)
