@@ -31,7 +31,8 @@ jobs:
       - name: Commit imported assets
         shell: bash
         run: |
-          git add assets/imported assets/local-art.js
+          if [ -d assets/imported ]; then git add assets/imported; fi
+          git add assets/local-art.js
           if git diff --cached --quiet; then
             echo "No new artwork was imported."
             exit 0
