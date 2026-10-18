@@ -74,3 +74,32 @@
 @media(max-height:680px){.home-panel{padding-top:clamp(8px,3vh,24px)}.game-heading{height:clamp(87px,19vh,150px)}.real-gta-logo{height:clamp(110px,19vh,140px)!important}.game-info{margin-top:12px}.game-description{font-size:15px}.bottom-details{padding-bottom:32px}}
 @media(max-width:760px){:root{--ps-edge:4.5vw}.topbar{padding:16px 4.5vw 0;height:68px}.game-row{height:92px;padding:0 4.5vw}.tile{flex-basis:70px;width:70px;height:70px}.main{height:calc(100% - 160px)}.home-panel{padding-top:clamp(20px,6vh,46px)}.game-heading{height:clamp(120px,19vh,172px)}.real-gta-logo{height:clamp(116px,18vh,162px)!important}.game-info{margin-top:12px}.game-description{font-size:15px}.bottom-details{padding-bottom:58px}.trophy-hub{display:none}.cc-upper{bottom:180px;left:5vw;right:5vw}.cc-cards{max-width:94vw;height:175px}.cc-card:last-child{display:none}.cc-actions{gap:2px}.cc-bottom{width:96vw;bottom:52px}.cc-status{display:none}.cc-action span{width:40px;height:40px}.cc-back{bottom:20px}}
 @media(max-width:480px){.topbar{height:61px;padding:15px 20px 0}.game-row{height:91px;padding:0 19px;gap:8px}.tile{flex-basis:63px;width:63px;height:63px}.focus-caption{font-size:12px;max-width:62vw}.focus-platform{font-size:9px}.main{height:calc(100% - 152px);padding:0 22px}.home-panel{padding-top:clamp(23px,7vh,55px)}.game-heading{height:130px}.real-gta-logo{height:130px!important;max-width:67vw!important}.game-info{margin-top:12px}.game-description{max-width:80vw}.bottom-details{display:none}.cc-upper{bottom:176px}.cc-cards{height:155px}.cc-card:nth-child(n+2){display:none}.cc-bottom{bottom:61px}.cc-actions{gap:0}.cc-action span{height:38px;width:38px}.cc-action svg{width:20px;height:20px}}
+
+/* Welcome hub, controller focus, and narrower-screen precision */
+.cc-action.focused{opacity:1}
+.cc-action.focused span{background:#ffffff35;box-shadow:0 0 0 2px #e9e9f3}
+.welcome-dashboard{display:none;position:absolute;inset:0;padding:0;overflow-y:auto;scrollbar-width:none}
+.welcome-active #homePanel>.game-heading,.welcome-active #homePanel>.game-info,.welcome-active #homePanel>.bottom-details{display:none}
+.welcome-active #homePanel>.welcome-dashboard{display:block}
+.welcome-active .shade{background:linear-gradient(180deg,#09091b66,transparent 35%,#050510e5)}
+.welcome-active .hero-art[data-theme="welcome"]{background:linear-gradient(125deg,#0b1331,#4f3e70 58%,#171638)}
+.welcome-banner{padding:5vh 0 0.8vh}
+.welcome-banner small{letter-spacing:.13em;color:#ffffffca;font-size:13px;font-weight:600}
+.welcome-banner h1{font-weight:580;font-size:clamp(38px,4.4vw,68px);letter-spacing:-.045em;margin:5px 0}
+.welcome-widgets{width:100%;max-width:1450px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(132px,20vh));gap:13px;padding-top:22px}
+.welcome-widget{border-radius:10px;background:#1b1e30cb;box-shadow:0 8px 20px #0004;backdrop-filter:blur(20px);border:1px solid #ffffff19;display:flex;flex-direction:column;justify-content:flex-end;gap:9px;text-align:left;padding:clamp(14px,2vw,26px);min-width:0;overflow:hidden}
+.welcome-widget:hover,.welcome-widget:focus-visible{background:#3a3c52ef;box-shadow:0 0 0 2px #fafaff,0 8px 20px #0004}
+.welcome-widget small{font-size:13px;color:#e7e8f1}
+.welcome-widget strong{font-size:clamp(19px,2vw,29px);font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.welcome-widget strong em{font-size:18px;font-style:normal;font-weight:400;opacity:.8}
+.welcome-widget>span{font-size:12px;opacity:.85}
+.welcome-recent{grid-row:span 2;background:linear-gradient(180deg,transparent,#080b25e8 85%),url("./assets/gta-vi-cover.jpg") center/cover}
+.welcome-trophy{background:linear-gradient(125deg,#3e294f,#171c2e)}
+.welcome-friends{background:linear-gradient(145deg,#25394b,#1a2534)}
+.welcome-store{background:linear-gradient(130deg,#174b70,#16243d)}
+.welcome-storage{background:linear-gradient(130deg,#283849,#182333)}
+.storage-track{height:8px;background:#92949f70;border-radius:50px;width:100%;overflow:hidden}
+.storage-track i{display:block;width:63%;height:100%;background:linear-gradient(90deg,#3aa6e1,#7a68f0)}
+.game-row::after{flex-basis:120vw}
+@media(max-width:800px){.welcome-dashboard{padding-top:8px}.welcome-banner{padding-top:1vh}.welcome-widgets{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(106px,16vh))}.welcome-recent{grid-row:span 2}.welcome-widget{padding:15px}.welcome-widget strong{font-size:18px}}
+@media(max-width:500px){.welcome-widgets{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(92px,15vh));gap:9px;padding-top:12px}.welcome-banner h1{font-size:35px}.welcome-widget small{font-size:11px}.welcome-widget strong{font-size:16px}.welcome-widget>span{font-size:10px}}
