@@ -15,12 +15,17 @@ jobs:
         run: |
           node --check app.js
           node --check enhancements.js
+          node --check experience.js
           node --check tools/fetch-artwork.mjs
       - name: Verify required files
         run: |
           test -s index.html
           test -s styles.css
           test -s fidelity.css
+          test -s polish.css
+          test -s assets/gta-vi-logo.png
+          test -s assets/gta-vi-cover.jpg
+          test -s assets/gta-vi-hero.webp
           test -s assets/vice-city.svg
           test -s assets/source-catalog.json
           node -e "JSON.parse(require('fs').readFileSync('assets/source-catalog.json','utf8'))"
