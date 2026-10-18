@@ -1,12 +1,12 @@
 "use strict";
 
-const ART = {
+const ART = Object.assign({
   gta6: "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=1920",
   gta6_alt: "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Lock_And_Load_With_Logos_landscape.13z.1pzvhq5dn.jpg?akim=1&imdensity=1&imwidth=1920",
   gta5: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg",
   spider: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817070/library_hero.jpg",
   ghost: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215430/library_hero.jpg"
-};
+}, window.PSRE_ASSETS || {});
 
 const CATALOG = [
   {id:"store",name:"PlayStation Store",tagline:"Discover your next adventure",description:"Browse new releases, great games, and incredible stories.",theme:"store",symbol:"<div class='tile-store'>▣<span>STORE</span></div>",gradient:"linear-gradient(135deg,#092b62,#1979cc)",action:"Explore"},
