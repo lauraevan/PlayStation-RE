@@ -24,6 +24,15 @@
     ]
   };
   const chosen={};
+  const ASTRO_COVER="https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/80ecf657918558eeef8da3ee4cef326e4517d34e6c69d950.jpg";
+  const artOverrides=[
+    {id:"astro",url:ASTRO_COVER},
+    {id:"spider",url:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/library_hero.jpg"}
+  ];
+  artOverrides.forEach(({id,url})=>{
+    const game=CATALOG.find(g=>g.id===id);
+    if(game)game.art=url;
+  });
   function firstImage(list){
     return new Promise(resolve=>{
       function next(index){
@@ -106,7 +115,16 @@
     const thumbnails=IMAGE_CANDIDATES.posters.map((src,i)=>'<a href="'+src+'" target="_blank" rel="noopener noreferrer" style="display:block;color:white;text-decoration:none"><img src="'+src+'" alt="Rockstar Games promotional image '+(i+1)+'" onerror="this.style.opacity=0.15" style="width:100%;height:100px;object-fit:cover;border-radius:5px"><small>Artwork '+(i+1)+'</small></a>').join("");
     openModal("Media Gallery",'<p>GTA VI official promotional artwork. Images may depend on the publisher website being available.</p><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">'+thumbnails+'</div><a class="gta-logo-link" href="https://www.rockstargames.com/VI/media/artwork-wallpapers" target="_blank" rel="noopener noreferrer">Browse the full official media library ↗</a>');
   }
-  function discoverArt(){
+  async function discoverArt(){
+    try{
+      const response=await fetch("./assets/local-art.json",{cache:"no-store"});
+      if(response.ok){
+        const local=await response.json();
+        if(local.cover) IMAGE_CANDIDATES.cover.unshift(local.cover);
+        if(local.logo) IMAGE_CANDIDATES.logo.unshift(local.logo);
+      }
+    }catch{}
+
     Promise.all([
       firstImage(IMAGE_CANDIDATES.cover),
       firstImage(IMAGE_CANDIDATES.logo)
