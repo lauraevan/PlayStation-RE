@@ -1,10 +1,10 @@
 # PlayStation-RE
 
-A browser-based, PS5-inspired home screen recreation built with plain HTML, CSS and JavaScript. The highlighted game is **Grand Theft Auto VI**, with a simulated boot screen and fictional story-menu concept. This does not run GTA VI or Sony firmware.
+A high-fidelity browser reconstruction of the PS5 home interface, built with plain HTML, CSS and JavaScript. The highlighted game is **Grand Theft Auto VI**, with a simulated boot screen and fictional story-menu concept. This does not run GTA VI or Sony firmware.
 
 ## Running
 
-Open `index.html` in a modern browser, or serve the folder using `python3 -m http.server 8000`. For the full console presentation, use your browser's fullscreen mode. No install, bundler, framework, tracking, or backend required.
+Serve the folder using `python3 -m http.server 8000`, then open `http://localhost:8000`. You can also open `index.html` directly. For the full console presentation, use your browser's fullscreen mode. No install, bundler, framework, tracking, or backend required.
 
 To import official GTA VI promotional imagery to local disk, run `python3 scripts/get_artwork.py`. For additional official screenshots, use `python3 scripts/get_artwork.py --screenshots`. For large video clips too, add `--clips`. These downloads come directly from Rockstar and are optional; the page ships with an original offline SVG backdrop. After import, the generated `assets/local-art.js` overrides the remote GTA VI background. Commit the imported assets separately if you want the media in your private repo.
 
@@ -46,3 +46,30 @@ No code was copied wholesale from these projects. The included vector scenery an
 
 ### Note
 Independent fan concept, not affiliated with Sony or Rockstar; the GTA VI flow is not gameplay or evidence of an early copy.
+
+
+## Fidelity work (October 2026)
+
+The optional `fidelity.css` and `enhancements.js` layers are enabled in the default page. They tune typography, navigation sizes, tile focus/caption placement, the game hub and Welcome Hub, and add Rockstar promotional artwork with graceful local fallbacks.
+
+**Asset discovery:** The full [source catalog](assets/source-catalog.json) lists the official media library, verified source pages, known public CDN filenames and GitHub references. The latest Rockstar media index advertises 25 wallpapers/artworks, 99 screenshots, 9 clips, 51 Ultimate Edition images and 12 Vintage Vice City images. Those are **available from Rockstar**, not all copied into this repository.
+
+To cache the assets locally, run:
+
+```bash
+node tools/fetch-artwork.mjs
+# Smaller download:
+node tools/fetch-artwork.mjs --cover-only
+```
+
+The fetcher validates HTTP content types and image signatures before writing `assets/downloaded/`. It updates `assets/local-art.json` with the successful downloads; missing/revised CDN URLs fall back to the bundled vector scene or existing artwork. It does not download game files or PlayStation firmware.
+
+### Actual bundled assets
+
+- `assets/vice-city.svg`: original fallback sunset city background.
+- `assets/controller-symbols.svg`: original browser control-symbol sheet.
+- `assets/vendor/flat-gamepad-icons/icons.svg`: attributed vector gamepad icons from [RobTheFiveNine/flat-gamepad-icons](https://github.com/RobTheFiveNine/flat-gamepad-icons), supplied under **CC BY-SA 4.0** with its original `LICENSE.md` in the same folder.
+- `assets/source-catalog.json`: link inventory and acquisition notes.
+- `assets/local-art.json`: local downloaded-art override when populated.
+
+**Scope:** This is an independent UI recreation, not a byte-identical Sony shell, real PS5 firmware, or a working copy of Grand Theft Auto VI. The GTA VI launch sequence is only a staged visual simulation. Official marketing images remain owned by their publishers.
