@@ -1,0 +1,92 @@
+{
+  "project": "PlayStation-RE",
+  "purpose": "Reference and download inventory for a personal, independent PS5-inspired browser interface.",
+  "primarySources": [
+    {
+      "name": "Rockstar Games GTA VI artwork and wallpapers",
+      "homepage": "https://www.rockstargames.com/VI/media/artwork-wallpapers",
+      "download": "https://media-rockstargames-com.akamaized.net/VI/downloads/artwork_wallpapers/GTAVI_Artwork_Wallpapers.zip",
+      "approxItems": 25,
+      "type": "official promotional images"
+    },
+    {
+      "name": "Rockstar Games GTA VI screenshots",
+      "homepage": "https://www.rockstargames.com/VI/media",
+      "download": "https://media-rockstargames-com.akamaized.net/VI/downloads/screenshots/GTAVI_Screenshots.zip",
+      "approxItems": 99,
+      "type": "official screenshots"
+    },
+    {
+      "name": "Rockstar Games GTA VI clips",
+      "homepage": "https://www.rockstargames.com/VI/media",
+      "download": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_Videos.zip",
+      "approxItems": 9,
+      "type": "official video clips"
+    }
+  ],
+  "runtimeArt": [
+    {
+      "id": "gtavi-cover",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=1920",
+      "fallback": "./assets/vice-city.svg"
+    },
+    {
+      "id": "gtavi-jason-lucia",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Lock_And_Load_With_Logos_landscape.13z.1pzvhq5dn.jpg?akim=1&imdensity=1&imwidth=1920",
+      "fallback": "./assets/vice-city.svg"
+    },
+    {
+      "id": "gtav-steam",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg",
+      "fallback": "css-gradient"
+    },
+    {
+      "id": "spiderman-steam",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817070/library_hero.jpg",
+      "fallback": "css-gradient"
+    },
+    {
+      "id": "ghost-steam",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215430/library_hero.jpg",
+      "fallback": "css-gradient"
+    }
+  ],
+  "githubReferences": [
+    {
+      "repo": "Blaze414/ps5-theme",
+      "role": "Real PS5 UI resource documentation and customizable theme formats",
+      "url": "https://github.com/Blaze414/ps5-theme"
+    },
+    {
+      "repo": "elripalda/psgfx",
+      "role": "Tile icon, home-background artwork preview and image proportions",
+      "url": "https://github.com/elripalda/psgfx"
+    },
+    {
+      "repo": "eduqg/PageStation-inspired-on-ps5-reactjs",
+      "role": "MIT-licensed visual study of the PS5 start/users/home screens",
+      "url": "https://github.com/eduqg/PageStation-inspired-on-ps5-reactjs"
+    },
+    {
+      "repo": "majedkarimi/ps5",
+      "role": "Lightweight vanilla HTML/CSS/JS reference",
+      "url": "https://github.com/majedkarimi/ps5"
+    },
+    {
+      "repo": "blackbearreloaded/ps5-homebrew-ui",
+      "role": "Motion and controller feedback reference",
+      "url": "https://github.com/blackbearreloaded/ps5-homebrew-ui"
+    },
+    {
+      "repo": "half144/ps5-react",
+      "role": "Controller navigation, sound and font handling on native PS5 homebrew",
+      "url": "https://github.com/half144/ps5-react"
+    },
+    {
+      "repo": "Manav-Sonawane/Playstation-Revamp",
+      "role": "Public store-banner and logo asset layout reference",
+      "url": "https://github.com/Manav-Sonawane/Playstation-Revamp"
+    }
+  ],
+  "notes": "Promotional artwork and trademarks remain property of their respective owners. Repository and third-party code licenses vary. Download packs contain media; do not confuse this browser demo with actual PS5 system files or playable GTA VI."
+}
