@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" aria-label="Gamepad navigation symbols">
+<g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path id="triangle" d="M30 16 8 55a5 5 0 0 0 4.4 7.5h35.2a5 5 0 0 0 4.4-7.5Z"/>
+<circle id="circle" cx="94" cy="40" r="23"/>
+<path id="cross" d="M152 18 186 62M186 18l-34 44"/>
+<rect id="square" x="205" y="17" width="45" height="45" rx="3"/>
+<path id="dual-sense" d="M58 116Q55 105 68 99L94 86Q111 80 121 91Q128 86 135 91L162 98Q177 104 173 115Q169 123 158 116L142 105H89L70 118Q61 122 58 116Z"/>
+<path d="M82 99v12M76 105h12M146 99h13M152 94v11"/>
+</g></svg>
