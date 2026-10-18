@@ -1,0 +1,135 @@
+{
+  "version": "2026-10-18",
+  "format": "Artwork source inventory (not game/firmware packages)",
+  "consoleSpec": {
+    "icon": "512 × 512 PNG",
+    "gameHubBackground": "3840 × 2160 DDS (BC7 on-console; JPEG/WebP in browser)",
+    "inferredFrom": [
+      "https://github.com/elripalda/psgfx",
+      "https://github.com/blackbearreloaded/ps5-native-app-boilerplate"
+    ]
+  },
+  "officialMedia": [
+    {
+      "category": "GTA VI complete artwork & wallpapers",
+      "count": 25,
+      "page": "https://www.rockstargames.com/VI/media/artwork-wallpapers"
+    },
+    {
+      "category": "GTA VI screenshots",
+      "count": 99,
+      "page": "https://www.rockstargames.com/VI/media/screenshots"
+    },
+    {
+      "category": "GTA VI media hub and trailers",
+      "count": 4,
+      "page": "https://www.rockstargames.com/VI/media"
+    },
+    {
+      "category": "GTA VI clips",
+      "count": 9,
+      "page": "https://www.rockstargames.com/VI/media"
+    },
+    {
+      "category": "GTA VI Ultimate Edition imagery",
+      "count": 51,
+      "page": "https://www.rockstargames.com/VI/media"
+    },
+    {
+      "category": "Vintage Vice City Pack imagery",
+      "count": 12,
+      "page": "https://www.rockstargames.com/VI/media"
+    }
+  ],
+  "directKnownRockstarAssets": [
+    {
+      "id": "gta6-cover-2026",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg"
+    },
+    {
+      "id": "gta6-cover-variant",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Lock_And_Load_With_Logos_landscape.13z.1pzvhq5dn.jpg"
+    },
+    {
+      "id": "gta6-logo-svg-2025",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/VIstack.fe9b0515.svg"
+    },
+    {
+      "id": "gta6-hero-keyart",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/heroKeyArt.acb9b343.jpg"
+    },
+    {
+      "id": "gta6-hero-foreground",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/heroKeyArt.0338a8a4.png"
+    },
+    {
+      "id": "gta6-vice-city",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Vice_City_02.1c840675.jpg"
+    },
+    {
+      "id": "gta6-lucia",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Lucia_Caminos_01.f5023e0f.jpg"
+    },
+    {
+      "id": "gta6-jason",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_Duval_02.c2f33c0d.jpg"
+    },
+    {
+      "id": "gta6-vi-mark",
+      "url": "https://www.rockstargames.com/VI/_next/static/media/vi.b9b99ab9.png"
+    }
+  ],
+  "repos": [
+    {
+      "name": "Blaze414/ps5-theme",
+      "url": "https://github.com/Blaze414/ps5-theme",
+      "role": "Real console themes asset paths, fonts, backgrounds and UI resource research; PS5's stock resource files are not bundled."
+    },
+    {
+      "name": "elripalda/psgfx",
+      "url": "https://github.com/elripalda/psgfx",
+      "role": "Native icon (512 square) and hero backdrop (3840x2160) handling; PS5 home preview."
+    },
+    {
+      "name": "blackbearreloaded/ps5-homebrew-ui",
+      "url": "https://github.com/blackbearreloaded/ps5-homebrew-ui",
+      "role": "Controller glyphs, motion and console interaction vocabulary."
+    },
+    {
+      "name": "blackbearreloaded/ps5-native-app-boilerplate",
+      "url": "https://github.com/blackbearreloaded/ps5-native-app-boilerplate",
+      "role": "PS5 presentation asset file types and sizing."
+    },
+    {
+      "name": "RobTheFiveNine/flat-gamepad-icons",
+      "url": "https://github.com/RobTheFiveNine/flat-gamepad-icons",
+      "role": "CC BY-SA 4.0 DualSense navigation pictogram references; no original icons copied."
+    },
+    {
+      "name": "rohitbhati-rb/ps5-dashboard",
+      "url": "https://github.com/rohitbhati-rb/ps5-dashboard",
+      "role": "Web reproduction of dashboard for visual comparison."
+    },
+    {
+      "name": "stkytomas/PS5-UI-clone",
+      "url": "https://github.com/stkytomas/PS5-UI-clone",
+      "role": "Alternative React/Next clone UI layout reference."
+    },
+    {
+      "name": "eduqg/PageStation-inspired-on-ps5-reactjs",
+      "url": "https://github.com/eduqg/PageStation-inspired-on-ps5-reactjs",
+      "role": "Screens and UX sequence study (React original, not copied)."
+    },
+    {
+      "name": "ZiZc3/LiveShell",
+      "url": "https://github.com/ZiZc3/LiveShell",
+      "role": "Animated background behavior on real PS5."
+    },
+    {
+      "name": "sairamsrujan/gta6-leonida",
+      "url": "https://github.com/sairamsrujan/gta6-leonida",
+      "role": "GTA VI promotional media presentation techniques."
+    }
+  ],
+  "usage": "This index points to official media and public research. Third-party artwork remains owned by its respective publisher; direct hashed URLs may change. No Sony firmware assets or gameplay binaries are shipped."
+}
