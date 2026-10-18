@@ -80,3 +80,7 @@ The fetcher validates HTTP content types and image signatures before writing `as
 The game tile uses the new multi-panel cover, the game hub uses the updated VI title image, and the hero/launch/menu use the Jason and Lucia wide background. The repository includes a downloader in `scripts/import-reference-art.py` and an Actions workflow to store these three pieces as local static files under `assets/`. The interface also includes public-source fallbacks so the preview remains usable if the artwork import has not run yet. Source: supplied artwork references and equivalent publicly hosted promotional media. No GTA VI game files are used.
 
 [GitHack development preview](https://raw.githack.com/lauraevan/PlayStation-RE/main/index.html). GitHack's `raw.githack.com` domain serves the latest branch but can cache updates; use the commit-pinned URL for immutable previews.
+
+## PS5 home fidelity pass
+
+The latest UI uses selected-tile horizontal rail positioning, native-style focus captions next to the tile, Sony-inspired home hub metrics and spacing, a compact controller-navigable Control Center, and a widget-based Welcome hub. The three uploaded GTA VI images are bundled in `assets/` and always preferred over remote artwork. The demo is a visual concept and does not include actual PS5 software or GTA VI gameplay.
