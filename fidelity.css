@@ -60,3 +60,13 @@
 .library-art .tile-symbol{z-index:1}
 @media(max-width:800px){.real-gta-logo{width:min(410px,71vw);max-height:160px}.hero-art[data-theme="gta6"]{background-position:57% center}}
 @media(max-width:550px){.real-gta-logo{width:78vw;max-height:136px}.hero-art[data-theme="gta6"]{background-position:62% center}}
+
+/* Unified installed-game artwork, home hub, activity control center and boot display. */
+.library-art{position:relative}
+.library-art .tile-symbol{z-index:0}
+.library-picture{position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%;object-fit:cover}
+.cc-playing{background-image:linear-gradient(90deg,#0b0c20cf,#15162a8d),var(--gta-hero,url("./assets/vice-city.svg"));background-size:cover;background-position:center}
+.launch-logo-art{display:block;width:min(370px,66vw);max-height:275px;object-fit:contain;margin:12px auto 45px;filter:drop-shadow(0 7px 17px #0807148f)}
+.story-wordmark{font-size:inherit;letter-spacing:normal;line-height:normal;margin-bottom:40px}
+.story-logo-art{display:block;width:min(330px,56vw);max-height:265px;object-fit:contain;filter:drop-shadow(0 7px 16px #0807149f)}
+@media(max-width:550px){.launch-logo-art{width:min(320px,85vw)}.story-logo-art{width:min(260px,74vw)}.story-content{top:16%}}
