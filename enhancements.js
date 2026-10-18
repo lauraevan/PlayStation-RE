@@ -145,6 +145,19 @@
       const item=CATALOG.find(x=>x.id==="gta6");
       if(item&&cover){item.art=cover;ART.gta6=cover;}
       if(item&&hero){chosen.hero=hero;}
+      if(logo){
+        const storyMark=document.querySelector(".story-wordmark");
+        if(storyMark && !storyMark.querySelector("img")){
+          const storyLogo=document.createElement("img");storyLogo.src=logo;storyLogo.alt="Grand Theft Auto VI";
+          storyLogo.className="story-logo-art";storyMark.replaceChildren(storyLogo);
+        }
+        const loadingMark=document.querySelector(".giant-vi");
+        if(loadingMark && !document.querySelector(".launch-logo-art")){
+          const launchLogo=document.createElement("img");launchLogo.src=logo;launchLogo.alt="Grand Theft Auto VI";
+          launchLogo.className="launch-logo-art";loadingMark.replaceWith(launchLogo);
+          const word=document.querySelector(".loading-title");if(word)word.remove();
+        }
+      }
       render();
     }).catch(()=>{});
   }
