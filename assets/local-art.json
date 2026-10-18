@@ -1,1 +1,5 @@
-{}
+{
+  "cover": "./assets/gta-vi-cover.jpg",
+  "logo": "./assets/gta-vi-logo.png",
+  "hero": "./assets/gta-vi-hero.webp"
+}
