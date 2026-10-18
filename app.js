@@ -159,7 +159,8 @@ function renderLibrary(filter){
  const grid=$("libraryGrid");grid.innerHTML="";
  items.forEach(item=>{
   const b=document.createElement("button");b.className="library-item";
-  b.innerHTML='<span class="library-art" style="--tile-gradient:'+item.gradient+'"><span class="tile-symbol">'+item.symbol+'</span></span><strong>'+escapeHtml(item.name)+'</strong><small>'+escapeHtml(item.installed?"Installed · PS5":"Application")+'</small>';
+  const picture=item.art ? '<img class="library-picture" src="'+escapeHtml(item.art)+'" alt="" loading="lazy" onerror="this.remove()">' : "";
+  b.innerHTML='<span class="library-art" style="--tile-gradient:'+item.gradient+'"><span class="tile-symbol">'+item.symbol+'</span>'+picture+'</span><strong>'+escapeHtml(item.name)+'</strong><small>'+escapeHtml(item.installed?"Installed · PS5":"Application")+'</small>';
   b.addEventListener("click",()=>{if(filter==="media")switchTab("media");else switchTab("games");select(item.id);closeLibrary();if(item.installed)textToast(item.name+" selected");});
   grid.appendChild(b);
  });
