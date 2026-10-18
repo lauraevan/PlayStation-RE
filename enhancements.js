@@ -6,13 +6,22 @@
   const ROOT="https://www.rockstargames.com/VI/_next/static/media/";
   const IMAGE_CANDIDATES={
     cover:[
+      "./assets/gta-vi-cover.jpg",
+      "https://blog.zh-hant.playstation.com/tachyon/sites/8/2026/06/cd149a81d72b805918215f472544c9b320667327.jpg",
       ROOT+"Official_Cover_Art_landscape.12.uu2irr.2_a.jpg",
       ROOT+"Jason_Lucia_Lock_And_Load_With_Logos_landscape.13z.1pzvhq5dn.jpg",
       ROOT+"heroKeyArt.acb9b343.jpg"
     ],
     logo:[
+      "./assets/gta-vi-logo.png",
+      "https://crystalpng.com/wp-content/uploads/2025/02/gta-6-logo-03.png",
       ROOT+"VIstack.fe9b0515.svg",
       ROOT+"vi.b9b99ab9.png"
+    ],
+    hero:[
+      "./assets/gta-vi-hero.webp",
+      "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_Beach_landscape.0419q._86ukpt.jpg",
+      "https://assets.games.gg/gta_6_confirmed_guns_trailers_screenshots_hero_72646daa1c.webp"
     ],
     posters:[
       ROOT+"Jason_Lucia_Lock_And_Load_With_Logos_landscape.13z.1pzvhq5dn.jpg",
@@ -91,7 +100,7 @@
   };
   const originalSetImage=setImage;
   setImage=function(item){
-    if(item.id==="gta6" && chosen.cover) item={...item,art:chosen.cover};
+    if(item.id==="gta6" && (chosen.hero||chosen.cover)) item={...item,art:chosen.hero||chosen.cover};
     originalSetImage(item);
   };
   const originalActivate=activate;
@@ -112,7 +121,7 @@
     '<article><small>◷ Activities</small><strong>Recent Activity</strong><span>Resume where you left off</span></article></div>');
   }
   function gallery(){
-    const thumbnails=IMAGE_CANDIDATES.posters.map((src,i)=>'<a href="'+src+'" target="_blank" rel="noopener noreferrer" style="display:block;color:white;text-decoration:none"><img src="'+src+'" alt="Rockstar Games promotional image '+(i+1)+'" onerror="this.style.opacity=0.15" style="width:100%;height:100px;object-fit:cover;border-radius:5px"><small>Artwork '+(i+1)+'</small></a>').join("");
+    const thumbnails=[chosen.cover,chosen.hero,...IMAGE_CANDIDATES.posters].filter(Boolean).map((src,i)=>'<a href="'+src+'" target="_blank" rel="noopener noreferrer" style="display:block;color:white;text-decoration:none"><img src="'+src+'" alt="Rockstar Games promotional image '+(i+1)+'" onerror="this.style.opacity=0.15" style="width:100%;height:100px;object-fit:cover;border-radius:5px"><small>Artwork '+(i+1)+'</small></a>').join("");
     openModal("Media Gallery",'<p>GTA VI official promotional artwork. Images may depend on the publisher website being available.</p><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">'+thumbnails+'</div><a class="gta-logo-link" href="https://www.rockstargames.com/VI/media/artwork-wallpapers" target="_blank" rel="noopener noreferrer">Browse the full official media library ↗</a>');
   }
   async function discoverArt(){
@@ -122,16 +131,20 @@
         const local=await response.json();
         if(local.cover) IMAGE_CANDIDATES.cover.unshift(local.cover);
         if(local.logo) IMAGE_CANDIDATES.logo.unshift(local.logo);
+        if(local.hero) IMAGE_CANDIDATES.hero.unshift(local.hero);
       }
     }catch{}
 
     Promise.all([
       firstImage(IMAGE_CANDIDATES.cover),
-      firstImage(IMAGE_CANDIDATES.logo)
-    ]).then(([cover,logo])=>{
-      chosen.cover=cover;chosen.logo=logo;
+      firstImage(IMAGE_CANDIDATES.logo),
+      firstImage(IMAGE_CANDIDATES.hero)
+    ]).then(([cover,logo,hero])=>{
+      chosen.cover=cover;chosen.logo=logo;chosen.hero=hero;
+      if(hero){document.documentElement.style.setProperty("--gta-hero", 'url("'+hero.replace(/"/g,"%22")+'")');}
       const item=CATALOG.find(x=>x.id==="gta6");
       if(item&&cover){item.art=cover;ART.gta6=cover;}
+      if(item&&hero){chosen.hero=hero;}
       render();
     }).catch(()=>{});
   }
