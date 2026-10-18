@@ -1,0 +1,49 @@
+/* PlayStation-RE fidelity pass: PS5 home proportions, typography, focus and depth */
+:root{font-family:Arial,"Helvetica Neue",Helvetica,system-ui,sans-serif}
+.console{background:#061129}
+.topbar{height:95px;padding:0 5.75vw;align-items:flex-start;padding-top:28px}
+.tabs{gap:34px}.tab{font-weight:400;color:#b7bbcb;font-size:19px}
+.tab.selected{font-weight:650}
+.utilities{gap:27px}.clock{font-size:19px}
+.game-row{height:127px;padding:0 5.75vw;gap:10px;align-items:flex-start;padding-top:3px;overflow-y:visible;clip-path:inset(-10px 0 -52px)}
+.tile{flex:0 0 80px;width:80px;height:80px;border-radius:12px;box-shadow:none;overflow:hidden}
+.tile.selected{transform:scale(1.1);box-shadow:0 0 0 2px white,0 0 0 5px #ffffff27,0 8px 17px #0006}
+.tile-picture{position:absolute;inset:0;object-fit:cover;z-index:1}
+.tile-symbol{position:relative;z-index:0}
+.tile:not(.selected):hover{transform:scale(1.035)}
+.main{height:calc(100% - 222px);padding:0 5.75vw}
+.home-panel{padding-top:clamp(18px,3.6vh,48px)}
+.game-heading{min-height:136px;align-items:center}
+.brand-gta{position:relative;transform:translateY(5px)}
+.brand-gta .brand-stack{font-size:clamp(54px,6.4vw,92px);letter-spacing:-.05em}
+.brand-gta .brand-vi{font-size:clamp(119px,13.6vw,186px)}
+.real-gta-logo{display:block;max-height:205px;max-width:min(570px,47vw);width:auto;object-fit:contain;filter:drop-shadow(0 4px 10px #0005)}
+.game-name{font-size:0;position:absolute;width:1px;height:1px;overflow:hidden}
+.game-info{margin-top:39px}
+.game-description{font-size:20px;line-height:1.48;max-width:600px;margin-bottom:28px}
+.primary{min-width:209px;min-height:44px;background:#f4f6fb;color:#2b2d31;font-size:15px;font-weight:600}
+.more-button{height:44px;width:44px;font-size:20px;background:#ffffff3b}
+.action-row{gap:12px}
+.hero-art{filter:saturate(1.04)}
+.shade{background:linear-gradient(90deg,rgba(5,9,22,.83) 0%,rgba(6,7,19,.55) 41%,rgba(3,4,14,.06) 88%),linear-gradient(180deg,#070c2061,transparent 36%,#04061115 52%,#01040fd9)}
+.bottom-details{padding-bottom:22px;gap:16px}
+.activity{background:#101723a9;border-radius:5px;width:284px}
+.activity-copy{gap:6px}
+.footer-note{display:none}
+.focus-caption{position:absolute;top:195px;left:6vw;z-index:5;color:#fff;text-shadow:0 1px 5px #000a;display:flex;align-items:center;gap:9px;font-size:15px;font-weight:400;pointer-events:none;white-space:nowrap;transition:left .16s cubic-bezier(.22,.72,.17,1),top .16s}
+.focus-platform{font-size:11px;font-weight:800;background:#f2f4f7;color:#1b1d21;line-height:1;border-radius:2px;padding:3px 5px;letter-spacing:-.02em}
+.launch-overlay,.story-overlay{background:#070d1b}
+.story-art{background-image:linear-gradient(90deg,#080c1ac4,#080c1a11 77%),url("./assets/vice-city.svg")}
+.activity-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.activity-card-grid article{background:#ffffff12;border-radius:8px;padding:13px 14px;min-height:80px}
+.activity-card-grid article strong{display:block;font-size:14px;margin:8px 0}
+.activity-card-grid article span{color:#d7d9e1;font-size:12px}
+.system-detail{background:#ffffff11;border-radius:6px;padding:14px;margin:7px 0}
+.system-detail small{display:block;color:#c3c9d7;font-size:12px;margin-bottom:8px}
+.system-detail strong{font-weight:500}
+.gta-logo-link{display:inline-flex;align-items:center;color:#fff;text-decoration:none;margin-top:15px;font-size:13px;gap:8px;opacity:.82}
+.gta-logo-link:hover{opacity:1}
+.reduced-motion *, .reduced-motion *::before, .reduced-motion *::after{animation-duration:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}
+@media(max-height:750px){.topbar{height:74px;padding-top:18px}.game-row{height:94px}.tile{width:67px;height:67px;flex-basis:67px}.main{height:calc(100% - 168px)}.focus-caption{top:153px}.home-panel{padding-top:6px}.game-heading{min-height:112px}.real-gta-logo{max-height:141px}.game-info{margin-top:10px}.game-description{font-size:17px;margin-bottom:19px}.bottom-details{padding-bottom:17px}}
+@media(max-width:800px){.topbar{height:77px;padding:20px 4.5vw 0}.game-row{height:100px;padding:0 4.5vw}.tile{width:64px;height:64px;flex-basis:64px}.main{height:calc(100% - 177px);padding:0 4.5vw}.focus-caption{top:151px;left:4.5vw;font-size:13px}.home-panel{padding-top:20px}.game-heading{min-height:95px}.real-gta-logo{max-width:64vw;max-height:150px}.game-info{margin-top:25px}.game-description{font-size:17px}.brand-gta .brand-stack{font-size:55px}.brand-gta .brand-vi{font-size:126px}}
+@media(max-width:550px){.topbar{height:65px;padding:16px 20px 0}.game-row{height:93px;padding:0 20px;gap:9px}.tile{flex-basis:58px;width:58px;height:58px;border-radius:11px}.main{height:calc(100% - 158px);padding:0 23px}.focus-caption{top:127px;left:20px;font-size:11px;max-width:84vw;overflow:hidden;text-overflow:ellipsis}.home-panel{padding-top:6vh}.real-gta-logo{max-width:80vw;max-height:135px}.game-info{margin-top:17px}.game-description{font-size:15px}.game-heading{min-height:94px}.primary{min-width:168px}.activity{display:none}.home-footer{display:none}}
