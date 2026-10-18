@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1328">
+<meta name="description" content="A cinematic, interactive PS5-inspired web console interface.">
+<title>PlayStation | Home</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="console" class="console" role="application" aria-label="Console interface recreation">
+  <div id="heroArt" class="hero-art" aria-hidden="true"></div>
+  <div class="shade" aria-hidden="true"></div>
+  <header class="topbar">
+    <nav class="tabs" aria-label="Content category">
+      <button id="gamesTab" class="tab selected" data-tab="games">Games</button>
+      <button id="mediaTab" class="tab" data-tab="media">Media</button>
+    </nav>
+    <div class="utilities">
+      <button class="icon-button" id="searchBtn" title="Search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.4"/><path d="m15 15 6 6"/></svg></button>
+      <button class="icon-button" id="settingsBtn" title="Settings" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M9.6 2h4.8l.8 2.7 1.6.7 2.5-1.3 3.1 3.2-1.3 2.4.7 1.6 2.7.8v4.1l-2.7.8-.7 1.6 1.3 2.5-3.1 3.1-2.5-1.3-1.6.7-.8 2.7H9.6l-.8-2.7-1.6-.7-2.5 1.3-3.1-3.1 1.3-2.5-.7-1.6-2.7-.8v-4.1l2.7-.8.7-1.6-1.3-2.4 3.1-3.2 2.5 1.3 1.6-.7Z" transform="translate(1 -1) scale(.91)"/><circle cx="12" cy="12" r="3.2"/></svg></button>
+      <button class="avatar" id="profileBtn" aria-label="User profile"><span id="avatarLetter">E</span><i></i></button>
+      <time id="clock" class="clock"></time>
+    </div>
+  </header>
+  <nav id="gameRow" class="game-row" aria-label="Installed games and applications"></nav>
+  <main class="main">
+    <section id="homePanel" class="home-panel" aria-live="polite">
+      <div id="gameHeading" class="game-heading"></div>
+      <div id="gameInfo" class="game-info"></div>
+      <div id="bottomDetails" class="bottom-details"></div>
+    </section>
+    <section id="libraryPanel" class="library-panel hidden" aria-label="Game library">
+      <div class="library-header"><h1>Game Library</h1><button id="libraryBack" class="frost-button">Back to home</button></div>
+      <div class="library-filters"><button class="filter selected" data-filter="all">Your Collection</button><button class="filter" data-filter="installed">Installed</button><button class="filter" data-filter="media">Media</button></div>
+      <div class="library-grid" id="libraryGrid"></div>
+    </section>
+  </main>
+  <footer class="home-footer"><span><b>✕</b> Select &nbsp;&nbsp; <b>◯</b> Back &nbsp;&nbsp; <b>≡</b> Options &nbsp;&nbsp; <b>PS</b> Control Center</span><span class="footer-note">Web interface concept</span></footer>
+  <div id="optionsOverlay" class="overlay hidden" aria-hidden="true"><div id="optionsMenu" class="options-menu"></div></div>
+  <div id="modalOverlay" class="overlay modal-overlay hidden" aria-hidden="true"><div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="modalClose" class="modal-close" aria-label="Close dialog">✕</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
+  <div id="controlCenter" class="control-center hidden" aria-hidden="true">
+    <div class="cc-upper">
+      <h2>Control Center</h2>
+      <div class="cc-cards">
+        <div class="cc-card cc-playing"><small>Current game</small><strong>Grand Theft Auto VI</strong><span>Continue Story</span><div class="cc-progress"><i></i></div></div>
+        <div class="cc-card"><small>Activity</small><strong>What's New</strong><span>Recent game activity</span></div>
+        <div class="cc-card"><small>Trophies</small><strong>12 <span>/ 48</span></strong><span>25% complete · Concept</span></div>
+      </div>
+    </div>
+    <div class="cc-bottom"><div id="ccActions" class="cc-actions"></div><div class="cc-status"><span id="ccClock"></span><span>Controller <b>▰▰▰</b></span></div></div>
+    <p class="cc-back">Press <b>P</b> or <b>◯</b> to go back</p>
+  </div>
+  <div id="launchOverlay" class="launch-overlay hidden" aria-hidden="true"><div class="launch-art"></div><div class="launch-center"><small>ROCKSTAR GAMES</small><div class="giant-vi">VI</div><div class="loading-title">GRAND THEFT AUTO</div><div id="launchText" class="launch-text">Starting...</div><div class="progress"><div id="progressFill"></div></div><button id="cancelLaunch" class="cancel-link">Return to home</button></div><span class="simulation-caption">FAN-MADE CONCEPT · SIMULATED BOOT, NOT GTA VI GAMEPLAY</span></div>
+  <div id="storyOverlay" class="story-overlay hidden" aria-hidden="true"><div class="story-art"></div><div class="story-content"><div class="story-wordmark">grand<br>theft<br>auto <em>VI</em></div><small>VICE CITY · LEONIDA</small><h2>A new chapter begins.</h2><div class="story-actions"><button id="continueBtn" class="primary">Continue Story</button><button id="storySettingsBtn" class="secondary">Settings</button><button id="storyBackBtn" class="secondary">Return to Home</button></div></div><span class="simulation-caption">FICTIONAL FAN-MADE STORY MENU · NOT AN ACTUAL GAME</span></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="./app.js" defer></script>
+</body>
+</html>
