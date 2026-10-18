@@ -1,0 +1,42 @@
+name: Import official GTA VI artwork
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/import-artwork.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: psre-artwork-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Prepare Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download official promotional artwork
+        run: python3 scripts/get_artwork.py
+      - name: Commit imported assets
+        shell: bash
+        run: |
+          git add assets/imported assets/local-art.js
+          if git diff --cached --quiet; then
+            echo "No new artwork was imported."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Import official promotional artwork for console concept"
+          git push
