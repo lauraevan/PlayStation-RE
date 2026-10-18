@@ -6,6 +6,8 @@ A browser-based, PS5-inspired home screen recreation built with plain HTML, CSS 
 
 Open `index.html` in a modern browser, or serve the folder using `python3 -m http.server 8000`. For the full console presentation, use your browser's fullscreen mode. No install, bundler, framework, tracking, or backend required.
 
+To import official GTA VI promotional imagery to local disk, run `python3 scripts/get_artwork.py`. For additional official screenshots, use `python3 scripts/get_artwork.py --screenshots`. For large video clips too, add `--clips`. These downloads come directly from Rockstar and are optional; the page ships with an original offline SVG backdrop. After import, the generated `assets/local-art.js` overrides the remote GTA VI background. Commit the imported assets separately if you want the media in your private repo.
+
 ## Controls
 
 - Arrow keys / D-pad: move between tiles and options
@@ -38,6 +40,8 @@ No code was copied wholesale from these projects. The included vector scenery an
 - `styles.css`: responsive PS5-inspired styling
 - `app.js`: catalog, navigation, gamepad, overlays, simulated launch
 - `assets/vice-city.svg`: original fallback skyline artwork
+- `assets/sfx/*.wav`: three original subtle synthesized UI sounds
+- `assets/local-art.js`: generated image override map
 - `assets/artwork.json`: image source inventory and acquisition notes
 
 ### Note
